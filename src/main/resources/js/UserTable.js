@@ -15,7 +15,7 @@ export default class UserTable extends React.Component {
                     <th>Last Name</th>
                     <th>Phone</th>
                     <th>Email</th>
-                    <th>:)</th>
+                    <th><span className="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
                 </tr>
                 </thead>
                 <tbody>

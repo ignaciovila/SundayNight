@@ -21,7 +21,7 @@ export default class UserContainer extends React.Component {
     }
 
     fetchUsers() {
-        axios.get('/users/all')
+        axios.get('/users/all/?filter=' + this.props.filter)
             .then((response) => {
                 this.setState({
                     users: response.data
@@ -31,7 +31,7 @@ export default class UserContainer extends React.Component {
 
     render() {
         return (
-            this.state.users.length > 0 ? <UserTable users={this.state.users}/> : null
+            this.state.users.length > 0 ? <UserTable users={this.state.users}/> : <h5>Sin resultados</h5>
         );
     }
 }

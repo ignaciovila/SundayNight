@@ -1638,33 +1638,59 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     constructor() {
         super();
+        this.state = { userFilter: '' };
+
+        this.handleFilterChange = this.handleFilterChange.bind(this);
+    }
+
+    handleFilterChange(event) {
+        this.setState({ userFilter: event.target.value });
     }
 
     render() {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { className: 'padded' },
+            null,
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                { className: 'row' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-3' }),
+                { className: 'navbar bg-dark' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'col-md-6' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__UserContainer__["a" /* default */], null)
+                    'a',
+                    { className: 'navbar-brand', href: '/' },
+                    'Agenda'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-3' })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'form',
+                    { className: 'form-inline' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', type: 'text', placeholder: 'Buscar', 'aria-label': 'Buscar',
+                        onChange: this.handleFilterChange })
+                )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                { className: 'row' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-5' }),
+                { className: 'container padded' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { className: 'col-md-2 centered' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__UserForm__["a" /* default */], null)
+                    { className: 'row' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-3' }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'col-md-6' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__UserContainer__["a" /* default */], { filter: this.state.userFilter })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-3' })
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-5' })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'row' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-5' }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'col-md-2 centered' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__UserForm__["a" /* default */], null)
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-5' })
+                )
             )
         );
     }
@@ -18960,7 +18986,7 @@ class UserContainer extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compon
     }
 
     fetchUsers() {
-        __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/users/all').then(response => {
+        __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/users/all/?filter=' + this.props.filter).then(response => {
             this.setState({
                 users: response.data
             });
@@ -18968,7 +18994,11 @@ class UserContainer extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compon
     }
 
     render() {
-        return this.state.users.length > 0 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__UserTable__["a" /* default */], { users: this.state.users }) : null;
+        return this.state.users.length > 0 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__UserTable__["a" /* default */], { users: this.state.users }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h5',
+            null,
+            'Sin resultados'
+        );
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = UserContainer;
@@ -19907,7 +19937,7 @@ class UserTable extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'th',
                         null,
-                        ':)'
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'glyphicon glyphicon-trash', 'aria-hidden': 'true' })
                     )
                 )
             ),
