@@ -18,12 +18,8 @@ public class UserService {
         List<User> userList = (List<User>) userRepository.findAll();
         userList = userList.stream().filter(a -> a.getName().toLowerCase().contains(filter.toLowerCase())
                 || a.getSurname().toLowerCase().contains(filter.toLowerCase())).collect(Collectors.toList());
-        userList.sort(Comparator.comparing(User::getSurname));
+        userList.sort(Comparator.comparing(a -> a.getName().toLowerCase()));
         return userList;
-    }
-
-    public List<User> getAllUsers() {
-        return (List<User>) userRepository.findAll();
     }
 
     public void saveUser(User user) {

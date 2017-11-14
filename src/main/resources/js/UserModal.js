@@ -34,7 +34,8 @@ export default class UserModal extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        if (this.state.name.length > 1 && this.state.name.length > 1 && this.state.phone.length > 5 && this.state.email.includes('@') && this.state.email.includes('.com')) {
+        const re =  /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if (this.state.name.length > 1 && this.state.name.length > 1 && this.state.phone.length > 5 && re.test(this.state.email)) {
             axios.post('/users/new', this.state);
             this.setState({name: '', surname: '', phone: '', email: '', showError: false});
         } else {
