@@ -1,5 +1,8 @@
 .padded {
-    padding: 50px;
+    padding-top: 25px;
+}
+.padded-50 {
+    padding-top: 50px;
 }
 .centered {
     text-align: center;

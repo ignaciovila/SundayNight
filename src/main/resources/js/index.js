@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import UserContainer from './UserContainer';
-import UserModal from './UserForm';
+import UserButton from "./UserButton";
+import UserModal from "./UserModal";
 
 class App extends React.Component {
     constructor() {
@@ -19,34 +20,33 @@ class App extends React.Component {
         return (
             <div>
                 <div className="navbar bg-dark">
-                    <a className="navbar-brand" href="/">Agenda</a>
+                    <a className="navbar-brand" href="/">Contact List</a>
                     <form className="form-inline">
-                        <input className="form-control" type="text" placeholder="Buscar" aria-label="Buscar"
-                        onChange={this.handleFilterChange}/>
+                        <input className="form-control" type="text" placeholder="Search" aria-label="Search"
+                               onChange={this.handleFilterChange}/>
                     </form>
                 </div>
-                <div className="container padded">
-                    <div className="row">
-                        <div className="col-md-3">
+                <div className="row padded">
+                    <div className="col-md-3">
 
-                        </div>
-                        <div className="col-md-6">
-                            <UserContainer filter={this.state.userFilter}/>
-                        </div>
-                        <div className="col-md-3">
-
-                        </div>
                     </div>
-                    <div className="row">
-                        <div className="col-md-5">
+                    <div className="col-md-6">
+                        <UserContainer filter={this.state.userFilter}/>
+                    </div>
+                    <div className="col-md-3">
 
-                        </div>
-                        <div className="col-md-2 centered">
-                            <UserModal/>
-                        </div>
-                        <div className="col-md-5">
+                    </div>
+                </div>
+                <div className="row padded">
+                    <div className="col-md-5">
 
-                        </div>
+                    </div>
+                    <div className="col-md-2 centered">
+                        <UserButton/>
+                        <UserModal/>
+                    </div>
+                    <div className="col-md-5">
+
                     </div>
                 </div>
             </div>

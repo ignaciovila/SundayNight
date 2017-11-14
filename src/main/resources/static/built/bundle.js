@@ -1629,7 +1629,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UserContainer__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__UserForm__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__UserButton__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__UserModal__ = __webpack_require__(57);
+
 
 
 
@@ -1657,40 +1659,37 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'a',
                     { className: 'navbar-brand', href: '/' },
-                    'Agenda'
+                    'Contact List'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'form',
                     { className: 'form-inline' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', type: 'text', placeholder: 'Buscar', 'aria-label': 'Buscar',
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', type: 'text', placeholder: 'Search', 'aria-label': 'Search',
                         onChange: this.handleFilterChange })
                 )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                { className: 'container padded' },
+                { className: 'row padded' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-3' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { className: 'row' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-3' }),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'col-md-6' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__UserContainer__["a" /* default */], { filter: this.state.userFilter })
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-3' })
+                    { className: 'col-md-6' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__UserContainer__["a" /* default */], { filter: this.state.userFilter })
                 ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-3' })
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'row padded' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-5' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { className: 'row' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-5' }),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'col-md-2 centered' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__UserForm__["a" /* default */], null)
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-5' })
-                )
+                    { className: 'col-md-2 centered' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__UserButton__["a" /* default */], null),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__UserModal__["a" /* default */], null)
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-md-5' })
             )
         );
     }
@@ -18982,7 +18981,7 @@ class UserContainer extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compon
     }
 
     componentDidMount() {
-        setInterval(this.fetchUsers.bind(this), 1000);
+        setInterval(this.fetchUsers.bind(this), 500);
     }
 
     fetchUsers() {
@@ -18995,9 +18994,9 @@ class UserContainer extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compon
 
     render() {
         return this.state.users.length > 0 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__UserTable__["a" /* default */], { users: this.state.users }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'h5',
-            null,
-            'Sin resultados'
+            'h3',
+            { className: 'centered' },
+            'No users found'
         );
     }
 }
@@ -19937,7 +19936,7 @@ class UserTable extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'th',
                         null,
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'glyphicon glyphicon-trash', 'aria-hidden': 'true' })
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', null)
                     )
                 )
             ),
@@ -20015,32 +20014,6 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__UserButton__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UserModal__ = __webpack_require__(58);
-
-
-
-
-class UserForm extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
-    render() {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__UserButton__["a" /* default */], null),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__UserModal__["a" /* default */], null)
-        );
-    }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = UserForm;
-
-
-/***/ }),
-/* 57 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 
 
 class UserButton extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
@@ -20056,7 +20029,7 @@ class UserButton extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
 
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20064,13 +20037,15 @@ class UserButton extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__FormError__ = __webpack_require__(58);
+
 
 
 
 class UserModal extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     constructor(props) {
         super(props);
-        this.state = { name: '', surname: '', phone: '', email: '' };
+        this.state = { name: '', surname: '', phone: '', email: '', showError: false };
 
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleSurnameChange = this.handleSurnameChange.bind(this);
@@ -20099,9 +20074,12 @@ class UserModal extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
     handleSubmit(event) {
         event.preventDefault();
 
-        __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/users/new', this.state);
-
-        this.setState({ name: '', surname: '', phone: '', email: '' });
+        if (this.state.name.length > 0 && this.state.name.length > 0 && this.state.phone.length > 5 && this.state.email.includes('@')) {
+            __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/users/new', this.state);
+            this.setState({ name: '', surname: '', phone: '', email: '', showError: false });
+        } else {
+            this.setState({ showError: true });
+        }
     }
 
     render() {
@@ -20112,6 +20090,11 @@ class UserModal extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'modal-dialog', role: 'document' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'centered padded-50' },
+                    this.state.showError ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__FormError__["a" /* default */], null) : null
+                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     { className: 'modal-content' },
@@ -20134,49 +20117,55 @@ class UserModal extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'modal-body' },
+                        'form',
+                        { id: 'userForm', onSubmit: this.handleSubmit },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'form',
-                            { onSubmit: this.handleSubmit },
+                            'div',
+                            { className: 'modal-body' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'form-group' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', id: 'name', placeholder: 'First Name',
-                                    value: this.state.name, onChange: this.handleNameChange })
+                                    value: this.state.name, onChange: this.handleNameChange, required: 'true',
+                                    'aria-required': 'true' })
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'form-group' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', id: 'surname', placeholder: 'Last Name',
-                                    value: this.state.surname, onChange: this.handleSurnameChange })
+                                    value: this.state.surname, onChange: this.handleSurnameChange,
+                                    required: 'true', 'aria-required': 'true' })
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'form-group' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'tel', className: 'form-control', id: 'phone', placeholder: 'Phone',
-                                    value: this.state.phone, onChange: this.handlePhoneChange })
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', id: 'phone', placeholder: 'Phone',
+                                    value: this.state.phone, onChange: this.handlePhoneChange,
+                                    required: 'true',
+                                    'aria-required': 'true' })
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'form-group' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'email', className: 'form-control', id: 'email', placeholder: 'Email',
-                                    value: this.state.email, onChange: this.handleEmailChange })
+                                    value: this.state.email, onChange: this.handleEmailChange,
+                                    required: 'true',
+                                    'aria-required': 'true' })
                             )
-                        )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'modal-footer' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'button',
-                            { type: 'button', className: 'btn btn-secondary', 'data-dismiss': 'modal' },
-                            'Close'
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'button',
-                            { type: 'submit', className: 'btn btn-info', onClick: this.handleSubmit },
-                            'Done'
+                            'div',
+                            { className: 'modal-footer' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'button',
+                                { type: 'button', className: 'btn btn-secondary', 'data-dismiss': 'modal' },
+                                'Close'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'button',
+                                { type: 'submit', className: 'btn btn-info' },
+                                'Done'
+                            )
                         )
                     )
                 )
@@ -20185,6 +20174,27 @@ class UserModal extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = UserModal;
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+class FormError extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+    render() {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { className: "alert alert-danger" },
+            "There are fields with errors"
+        );
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = FormError;
 
 
 /***/ })

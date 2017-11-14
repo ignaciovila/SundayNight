@@ -16,7 +16,7 @@ export default class UserContainer extends React.Component {
 
     componentDidMount() {
         setInterval(
-            this.fetchUsers.bind(this), 1000
+            this.fetchUsers.bind(this), 500
         );
     }
 
@@ -31,7 +31,7 @@ export default class UserContainer extends React.Component {
 
     render() {
         return (
-            this.state.users.length > 0 ? <UserTable users={this.state.users}/> : <h5>Sin resultados</h5>
+            this.state.users.length > 0 ? <UserTable users={this.state.users}/> : <h3 className="centered">No users found</h3>
         );
     }
 }
