@@ -20074,7 +20074,7 @@ class UserModal extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
     handleSubmit(event) {
         event.preventDefault();
 
-        if (this.state.name.length > 0 && this.state.name.length > 0 && this.state.phone.length > 5 && this.state.email.includes('@')) {
+        if (this.state.name.length > 1 && this.state.name.length > 1 && this.state.phone.length > 5 && this.state.email.includes('@') && this.state.email.includes('.com')) {
             __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/users/new', this.state);
             this.setState({ name: '', surname: '', phone: '', email: '', showError: false });
         } else {
