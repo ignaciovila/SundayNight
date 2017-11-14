@@ -1,8 +1,6 @@
 .padded {
-    padding-top: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 50px;
 }
-#userForm {
-    padding-top: 50px;
+.centered {
+    text-align: center;
 }
