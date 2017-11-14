@@ -70,7 +70,7 @@ export default class UserModal extends React.Component {
                                            required="true" aria-required="true"/>
                                 </div>
                                 <div className="form-group">
-                                    <input type="text" className="form-control" id="phone" placeholder="Phone"
+                                    <input type="number" className="form-control" id="phone" placeholder="Phone"
                                            value={this.state.phone} onChange={this.handlePhoneChange}
                                            required="true"
                                            aria-required="true"/>

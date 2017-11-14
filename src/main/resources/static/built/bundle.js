@@ -20139,7 +20139,7 @@ class UserModal extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component 
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
                                 { className: 'form-group' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', id: 'phone', placeholder: 'Phone',
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'number', className: 'form-control', id: 'phone', placeholder: 'Phone',
                                     value: this.state.phone, onChange: this.handlePhoneChange,
                                     required: 'true',
                                     'aria-required': 'true' })
