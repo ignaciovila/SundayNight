@@ -23,7 +23,7 @@ class App extends React.Component {
                     <a className="navbar-brand" href="/">Contact List</a>
                     <form className="form-inline">
                         <input className="form-control" type="text" placeholder="Search" aria-label="Search"
-                               onChange={this.handleFilterChange}/>
+                               onChange={this.handleFilterChange} onSubmit={this.handleFilterChange}/>
                     </form>
                 </div>
                 <div className="row padded">
