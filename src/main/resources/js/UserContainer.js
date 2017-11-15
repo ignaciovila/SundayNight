@@ -36,7 +36,7 @@ export default class UserContainer extends React.Component {
                 <UserTable users={this.state.users}/>
                 :
                 <div className="alert alert-info">
-                    No users found for "{this.props.filter}"
+                    No users found
                 </div>
         );
     }
