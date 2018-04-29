@@ -1,4 +1,12 @@
 {
+  "name": "SundayNight",
+  "version": "0.0.1",
+  "description": "Make something useful",
+  "main": "index.js",
+  "author": "Ignacio Vila",
+  "license": "UBA",
+  "repository": "git@github.com:ignaciovila/sundaynight.git",
+  "private": false,
   "dependencies": {
     "ajv": "^6.4.0",
     "axios": "^0.17.1",
@@ -10,12 +18,5 @@
     "react-dom": "^16.3.2",
     "react-scripts": "^1.1.4",
     "webpack": "^3.8.1"
-  },
-  "name": "SundayNight",
-  "version": "0.0.1",
-  "description": "Make something useful",
-  "main": "index.js",
-  "author": "Ignacio Vila",
-  "license": "UBA",
-  "private": false
+  }
 }
